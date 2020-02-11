@@ -1,0 +1,27 @@
+﻿@model KurumsalWeb.Models.Model.Yorum
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2><i class="far fa-comments"></i>Yorum İşlemleri</h2>
+<hr />
+
+<section class="panel">
+    <header class="panel-heading">
+        Yorum İşlemleri
+    </header>
+    <div class="panel-body">
+        <div class="alert alert-danger fade in">
+            <h2><strong>@Model.İcerik</strong> Bu Yorumu Silmek İstediğinize Eminmisiniz?</h2>
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.Id)
+            <input type="submit" value="Sil" class="btn btn-danger" />
+            <a href="/Yorum" class="btn btn-primary"><i class="fas fa-backward"></i> Listeye Dön</a>
+        }
+    </div>
+</section>

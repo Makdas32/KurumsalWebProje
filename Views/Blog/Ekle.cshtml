@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2><i class="fas fa-pencil-alt"></i> Yazı Ekle</h2>
+<hr />
+
+<section class="panel">
+    <header class="panel-heading">
+        Yeni Yazı Ekle
+    </header>
+    <div class="panel-body">
+        @using (Html.BeginForm("Ekle", "Blog", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Başlık</label>
+                <div class="col-md-10">
+                    @Html.TextBox("Baslik", null, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">İçerik</label>
+                <div class="col-md-10">
+                    <textarea class="form-control ckeditor" name="İcerik" rows="6"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Resim</label>
+                <div class="col-md-10">
+                    <input type="file" name="ResimURL" accept=".png,.jpg,.jpeg" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Kategori</label>
+                <div class="col-md-10">
+                    @Html.DropDownList("KategoriId",null,new { @class="form-control"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Ekle" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</section>
+<script type="text/javascript" src="~/Content/AdminTema/assets/ckeditor/ckeditor.js"></script>

@@ -1,0 +1,50 @@
+﻿@using  PagedList
+@using  PagedList.Mvc
+@model IPagedList<KurumsalWeb.Models.Model.Blog>
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <section id="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    @foreach (var item in Model)
+                    {
+                        <article>
+                            <div class="post-image">
+                                <div class="post-heading">
+                                    <h3><a href="/Home/BlogDetay/@item.Id">@item.Baslik</a></h3>
+                                </div>
+                                <img src="@item.ResimURL" alt="" height="450" width="850" />
+                            </div>
+                            <p>
+                                @Html.Raw(item.İcerik.Substring(0,300))
+                            </p>
+                            <div class="bottom-article">
+                                <ul class="meta-post">
+                                    <li><i class="icon-folder-open"></i><a href="#"> @item.Kategori.KategoriAdi</a></li>
+                                    <li><i class="icon-comments"></i><a href="#">4 Comments</a></li>
+                                </ul>
+                                <a href="/Home/BlogDetay/@item.Id" class="pull-right">Devamını Oku <i class="icon-angle-right"></i></a>
+                            </div>
+                        </article>
+                    }
+
+
+                    <div id="pagination">
+                        @Html.PagedListPager(Model,sayfa => Url.Action("Blog",new { sayfa}),PagedListRenderOptions.Classic)
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4">
+                    @{
+                        Html.RenderAction("_SagKisimPartial", "Home");
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+

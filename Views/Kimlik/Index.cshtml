@@ -1,0 +1,55 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.Kimlik>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2><i class="fas fa-passport"></i> Site Kimlik Ayarları</h2>
+<hr />
+<table class="table table-bordered table-striped table-advance table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LogoUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keywords)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unvan)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <div class="text-center">
+                    <img src="@item.LogoUrl" width="120" />
+                </div>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keywords)
+            </td>
+            <td>
+                @Html.Raw(item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Unvan)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5"> <a class="btn btn-warning" href="/Kimlik/Duzenle/@item.Id"><i class="far fa-edit"></i> Düzenle</a></td>
+        </tr>
+    }
+
+</table>

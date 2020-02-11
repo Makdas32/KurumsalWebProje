@@ -1,0 +1,27 @@
+﻿@model KurumsalWeb.Models.Model.Hizmet
+@{
+    ViewBag.Title = "Sil";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2><i class="fas fa-concierge-bell"></i> Hizmetlerimiz Ayarları</h2>
+<hr />
+
+<section class="panel">
+    <header class="panel-heading">
+        Site Hakkımızda Düzenle
+    </header>
+    <div class="panel-body">
+        <div class="alert alert-danger fade in">
+            <h2><strong>@Model.Baslik</strong> İsimli Hizmeti Silmek İstediğinize Eminmisiniz?</h2>
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.Id)
+            <input type="submit" value="Sil" class="btn btn-danger" />
+            <a href="/Hizmet" class="btn btn-primary"><i class="fas fa-backward"></i> Listeye Dön</a>
+        }
+    </div>
+</section>
+

@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Hizmetlerimiz";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+
+            @{
+                Html.RenderAction("_HizmetPartial", "Home");
+            }
+
+        </div>
+    </div>
+</section>

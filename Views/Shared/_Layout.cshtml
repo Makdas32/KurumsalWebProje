@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>*@
+
+
+    <!-- css Theme -->
+    <link href="~/Content/SiteTema/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteTema/css/fancybox/jquery.fancybox.css" rel="stylesheet">
+    <link href="~/Content/SiteTema/css/jcarousel.css" rel="stylesheet" />
+    <link href="~/Content/SiteTema/css/flexslider.css" rel="stylesheet" />
+    <link href="~/Content/SiteTema/css/style.css" rel="stylesheet" />
+
+    <!-- Theme skin -->
+    <link href="~/Content/SiteTema/skins/default.css" rel="stylesheet" />
+
+    <!-- =======================================================
+    Theme Name: Moderna
+    Theme URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
+    Author: BootstrapMade
+    Author URL: https://bootstrapmade.com
+    ======================================================= -->
+
+
+</head>
+<body>
+
+    <div id="wrapper">
+        <!-- start header -->
+        <header>
+            <div class="navbar navbar-default navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html"><span>M</span>oderna</a>
+                    </div>
+                    <div class="navbar-collapse collapse ">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="index.html">Home</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Features <b class=" icon-angle-down"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="typography.html">Typography</a></li>
+                                    <li><a href="components.html">Components</a></li>
+                                    <li><a href="pricingbox.html">Pricing box</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- end header -->
+        @RenderBody()
+        <footer>
+            @{
+                Html.RenderAction("_FooterPartial", "Home");
+            }
+        </footer>
+    </div>
+    <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+    <!-- javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="~/Content/SiteTema/js/jquery.js"></script>
+    <script src="~/Content/SiteTema/js/jquery.easing.1.3.js"></script>
+    <script src="~/Content/SiteTema/js/bootstrap.min.js"></script>
+    <script src="~/Content/SiteTema/js/jquery.fancybox.pack.js"></script>
+    <script src="~/Content/SiteTema/js/jquery.fancybox-media.js"></script>
+    <script src="~/Content/SiteTema/js/google-code-prettify/prettify.js"></script>
+    <script src="~/Content/SiteTema/js/portfolio/jquery.quicksand.js"></script>
+    <script src="~/Content/SiteTema/js/portfolio/setting.js"></script>
+    <script src="~/Content/SiteTema/js/jquery.flexslider.js"></script>
+    <script src="~/Content/SiteTema/js/animate.js"></script>
+    <script src="~/Content/SiteTema/js/custom.js"></script>
+
+</body>
+</html>

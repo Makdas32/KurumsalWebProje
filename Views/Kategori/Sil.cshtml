@@ -1,0 +1,27 @@
+﻿@model KurumsalWeb.Models.Model.Kategori
+
+@{
+    ViewBag.Title = "Sil";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2><i class="fas fa-list-alt"></i> Kategori İşlemleri</h2>
+<hr />
+
+<section class="panel">
+    <header class="panel-heading">
+        Kategori Sil
+    </header>
+    <div class="panel-body">
+        <div class="alert alert-danger fade in">
+            <h2><strong>@Model.KategoriAdi</strong> İsimli Kategoriyi Silmek İstediğinize Eminmisiniz?</h2>
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.Id)
+            <input type="submit" value="Sil" class="btn btn-danger" />
+            <a href="/Kategori" class="btn btn-primary"><i class="fas fa-backward"></i> Listeye Dön</a>
+        }
+    </div>
+</section>

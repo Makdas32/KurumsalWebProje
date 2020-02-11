@@ -1,0 +1,56 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.Yorum>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2><i class="far fa-comments"></i>Yorum Ayarları</h2>
+<hr />
+
+<table class="table table-striped table-advance">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Blog.Baslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdSoyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th width="350">
+            @Html.DisplayNameFor(model => model.İcerik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Onay)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Blog.Baslik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdSoyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.İcerik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Onay)
+            </td>
+            <td>
+                <a href="/Yorum/Edit/@item.Id" class="btn btn-success"><i class="far fa-edit"></i> Onayla</a>
+                <a href="/Yorum/Delete/@item.Id" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Sil</a>
+            </td>
+        </tr>
+    }
+
+</table>

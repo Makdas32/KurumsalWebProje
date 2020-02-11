@@ -1,0 +1,32 @@
+﻿<aside class="right-sidebar">
+    <div class="widget">
+        <form class="form-search">
+            <input class="form-control" type="text" placeholder="Search..">
+        </form>
+    </div>
+    <div class="widget">
+        <h5 class="widgetheading">Kategoriler</h5>
+        <ul class="cat">
+            @foreach (var item in ViewBag.Kategori)
+            {
+                <li><i class="icon-angle-right"></i><a href="/Home/Blog/@item.Id">@item.KategoriAdi</a><span> (@item.Bloglar.Count)</span></li>
+            }
+        </ul>
+    </div>
+    <div class="widget">
+        <h5 class="widgetheading">Son Yazılar</h5>
+        <ul class="recent">
+            @foreach (var item in ViewBag.Blog)
+            {
+                <li>
+                    <img src="@item.ResimURL" class="pull-left" alt=""/>
+                    <h6><a href="/Home/BlogDetay/@item.Id">@item.Baslik</a></h6>
+                    <p>
+                        @Html.Raw(item.İcerik.Substring(0, 200))
+                    </p>
+                </li>
+            }
+
+        </ul>
+    </div>
+</aside>
